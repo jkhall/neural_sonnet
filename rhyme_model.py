@@ -1,15 +1,17 @@
 import torch
 import torch.nn as nn
-import torch.nn.Functional as F
+import torch.nn.functional as F
+import util
 
 
 class RhymeModel(nn.Module):
   def __init__(self, batch_size):
     super().__init__()
+    self.char2idx, self.idx2char, self.max_word_len = util.get_char_dicts()
     self.emb_sz = 100
     self.hidden_sz = 50
-    self.vocab_sz = vocab_sz
-    self.seq_len = max_word_len
+    self.vocab_sz = len(self.idx2char)
+    self.seq_len = self.max_word_len
     self.num_layers = 1
     self.num_dirs = 1
     self.bs = batch_size
@@ -19,10 +21,16 @@ class RhymeModel(nn.Module):
     
   # seq_len, batch_sz, hidden_sz
   def init_hidden(self):
-    return torch.zeros(self.num_layers * self.num_dirs, self.bs, self.hidden_sz).cuda()
+    h = torch.zeros(self.num_layers * self.num_dirs, self.bs, self.hidden_sz)
+    if torch.cuda.is_available():
+      h = h.cuda()
+    return h
   
   def init_cs(self):
-    return torch.zeros(self.num_layers * self.num_dirs, self.bs, self.hidden_sz).cuda()
+    cs = torch.zeros(self.num_layers * self.num_dirs, self.bs, self.hidden_sz)
+    if torch.cuda.is_available():
+      cs = cs.cuda()
+    return cs
   
   # target and refs are hidden states obtained after feeding the last
   # character through the LSTM

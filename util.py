@@ -1,8 +1,13 @@
 import codecs
 import itertools
+import re
+import numpy as np
+import util
+import torch
 
 # rhymes from line endings
-print("hey")
+MAX_WORD_LEN = 15
+
 
 def get_last_words():
   print("getting last words...")
@@ -44,9 +49,40 @@ def load_data():
       
   return data
 
-def word2indices(word):
-  widxs = torch.zeros(max_word_len, dtype=torch.long).cuda()
-  if len(word) > max_word_len: print(word) 
+
+def get_char_dicts():
+  char2idx = {}
+  idx2char = []
+  idx2char.append("pad")
+  
+  throwaway = [" ", "<", ">", "\n", "[", "]", "{", "}"]
+  
+  # last_words = get_last_words() #all line endings
+  # rhyme_dataset = load_data()
+  
+  with open("data/train/sonnet_train.txt", "r") as f:
+    for line in f:
+      for ch in line:
+        # disregard space,newline,and <,>
+        if ch in throwaway:
+          continue
+        else:
+          idx2char.append(ch)
+          
+    idx2char = list(set(idx2char))
+    idx2char.append("-")
+    
+  # no padding char so, we don't need to preserve zero
+  for idx, ch in enumerate(idx2char):
+    char2idx[ch] = idx
+
+  return char2idx, idx2char, MAX_WORD_LEN
+
+def word2indices(word, char2idx):
+  widxs = torch.zeros(MAX_WORD_LEN, dtype=torch.long)
+  if torch.cuda.is_available():
+    widxs = widxs.cuda()
+  if len(word) > MAX_WORD_LEN: print(word) 
   for i, ch in enumerate(word):
     widxs[i] = char2idx[ch]
     
