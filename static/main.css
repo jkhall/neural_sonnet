@@ -3,7 +3,15 @@
   line-height: 3em;
   width: 50%;
   margin-left: 25%;
-  margin-top: 5%
+  margin-top: 5%;
+  color: yellow;
+}
+
+
+@media(max-device-width: 600px) {
+  #display {
+    font-size: 1.2em;
+  }
 }
 
 #gen_poem_btn {

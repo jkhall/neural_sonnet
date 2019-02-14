@@ -6,7 +6,10 @@ btn.addEventListener("click", function(e){
   e.preventDefault()
   console.log("generating")
   display.innerHTML = "generating..."
-  fetch("/gen_poem?seed=" + inp.value)
+  if(inp.value.length > 10){
+    display.innerHTML = "seed length should be <= 10"
+  } else {
+    fetch("/gen_poem?seed=" + inp.value)
     .then(function(response){
       return response.json()
     })
@@ -15,4 +18,5 @@ btn.addEventListener("click", function(e){
       
       display.innerHTML = myJson.join('<br>')
     })
+  } 
 })

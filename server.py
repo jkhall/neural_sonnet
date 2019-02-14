@@ -45,7 +45,7 @@ def homepage(request):
     <head>
       <link rel='stylesheet' href='static/main.css'/>
     </head>
-    <input type='text' id='seed_inp' placeholder='Seed poem here'></input>
+    <input type='text' id='seed_inp' placeholder='Seed poem here (10 chars or less)'></input>
     <button id='gen_poem_btn'>Generate!</button>
     <div id='display'></div>
     <script src='static/main.js'></script>

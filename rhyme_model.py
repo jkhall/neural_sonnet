@@ -108,7 +108,7 @@ class RhymeModel(nn.Module):
     return loss, cos_sims
 
 
-def train_rhyme_model(model, dataset):
+def train_rhyme_model(model, dataset, optimizer):
   for i in range(len(dataset) // bs):
     sample = dataset[i * bs: i*bs + bs]
     loss, _ = rm(sample)
