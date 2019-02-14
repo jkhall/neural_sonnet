@@ -1,0 +1,23 @@
+#display {
+  font-size: 2em;
+  line-height: 3em;
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 5%
+}
+
+#gen_poem_btn {
+  font-size: 1em;
+  display: block;
+  float:unset;
+  margin-left: 25%;
+  margin-top: 10px;
+}
+
+#seed_inp {
+  width: 50%;
+  line-height: 2em;
+  font-size: 1em;
+  margin-left: 25%;
+  margin-top: 5%;
+}

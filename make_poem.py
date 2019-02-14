@@ -22,14 +22,26 @@ rhyme_dataset = util.load_data()
 
 lm = lang_model.build_model()
 
-s = lang_model.generate_quatrain("May", lm)
-
-poem = lang_model.clean_poem(s)
-
 rhyme_words, rhyme_vectors = get_rhymes(rm, rhyme_dataset)
-
+  
 rhyme_idx = create_rhyme_index(rhyme_vectors)
 
-rhymes = lang_model.enforce_rhyme(poem, "ABBA", rhyme_idx, rhyme_words, rhyme_vectors) 
+# ------------------------------
 
-print(rhymes)
+def gen(seed):
+  s = lang_model.generate_quatrain(seed, lm)
+  
+  poem = lang_model.clean_poem(s)
+      
+  rhymes = lang_model.enforce_rhyme(poem, "ABBA", rhyme_idx, rhyme_words, rhyme_vectors) 
+
+  while rhymes == None:
+    s = lang_model.generate_quatrain("The", lm)
+    poem = lang_model.clean_poem(s)
+    rhymes = lang_model.enforce_rhyme(poem, "ABBA", rhyme_idx, rhyme_words, rhyme_vectors)  
+
+  return rhymes
+
+#quatrain = gen("He", rm, lm, rhyme_dataset, rhyme_words, rhyme_vectors, rhyme_idx)
+
+#print(quatrain)

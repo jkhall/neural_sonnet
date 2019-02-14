@@ -35,7 +35,11 @@ def enforce_rhyme(lines, scheme, rhyme_index, rhyme_w, rhyme_v):
 #     A_candidates = pronouncing.rhymes(A[-2:])
     B = lines[1].split()[-1]
 #     B_candidates = pronouncing.rhymes(B[-2:])
-    
+    if len(np.where(rhyme_w==A)[0]) <= 0:
+      # return none
+      return None
+    if len(np.where(rhyme_w==B)[0]) <= 0:
+      return None
     a_ind = np.where(rhyme_w==A)[0][0]
     b_ind = np.where(rhyme_w==B)[0][0]
   
