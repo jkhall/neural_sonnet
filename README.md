@@ -9,3 +9,9 @@ I used a pretrained English language model via Fastai and I finetuned it on some
 The dataset and the rhyme model were cribbed from this paper: https://aclweb.org/anthology/P18-1181
 
 The poems aren't necessarily romantic, but for the duration of Valentine's Day I'll be hosting the model here: http://ec2-18-224-200-228.us-east-2.compute.amazonaws.com/
+
+TODO:
+
+[] Make sure the net doesn't inject dumb characters
+[] Enforce iambic pentameter
+[] Use semantic similarity to make more thematically coherent poems
