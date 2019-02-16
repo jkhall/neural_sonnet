@@ -12,8 +12,7 @@ The poems aren't necessarily romantic, but for the duration of Valentine's Day I
 
 Examples:
 
-![Image of poem1](https://drive.google.com/open?id=1403_DcFYcJz3h2yxiuth77Jbxg2n1u83)
-![Image of poem2](https://drive.google.com/open?id=1DWaC9gjSZ-8Qp9UzEdwNpVFHmzArlZvD)
+![image](https://www.dropbox.com/s/xue7fpd53cjmo6o/Screen%20Shot%202019-02-14%20at%2010.23.15%20AM.png?dl=1)
 
 TODO:
 
