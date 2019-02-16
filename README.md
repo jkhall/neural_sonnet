@@ -8,9 +8,12 @@ I used a pretrained English language model via Fastai and I finetuned it on some
 
 The dataset and the rhyme model were cribbed from this paper: https://aclweb.org/anthology/P18-1181
 
-The poems aren't necessarily romantic, but for the duration of Valentine's Day I'll be hosting the model here: ~ec2-18-223-29-17.us-east-2.compute.amazonaws.com~
+The poems aren't necessarily romantic, but for the duration of Valentine's Day I'll be hosting the model here: ~ec2-18-223-29-17.us-east-2.compute.amazonaws.com~ Best on a desktop
 
-The above looks best on a desktop.
+Examples:
+
+![Image of poem1](https://drive.google.com/open?id=1403_DcFYcJz3h2yxiuth77Jbxg2n1u83)
+![Image of poem2](https://drive.google.com/open?id=1DWaC9gjSZ-8Qp9UzEdwNpVFHmzArlZvD)
 
 TODO:
 
